@@ -4,42 +4,15 @@ import xml.etree.ElementTree as ET
 import concurrent.futures
 from tqdm import tqdm
 import whisper
-import ctypes
-import platform
-import warnings
-import logging
-
-# Redirect warnings to a log file
-logging.basicConfig(filename='warnings.log', level=logging.WARNING)
-warnings.filterwarnings("ignore")
-
-# Suppress specific Whisper/Torch warnings
-os.environ["TOKENIZERS_PARALLELISM"] = "false"  # Suppress tokenizer warnings
-os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"  # Suppress TensorFlow logs
-
-# Load C library explicitly to handle potential platform-specific issues
-try:
-    if platform.system() == "Windows":
-        # Load the Microsoft C Runtime (msvcrt) on Windows
-        libc = ctypes.CDLL("msvcrt.dll")
-    else:
-        # Load libc on other systems
-        libc_name = ctypes.util.find_library("c")
-        if libc_name is None:
-            raise ValueError("Could not locate libc")
-        libc = ctypes.CDLL(libc_name)
-except Exception as e:
-    print(f"Error loading C library: {e}")
-    exit()
 
 # Verzeichnisse für Downloads und Transkriptionen
-download_dir = ("Deportation_Vorlesungen")
-transcriptions_dir = ("Deportation_Transkription")
+download_dir = ("NAME_Vorlesungen")
+transcriptions_dir = ("NAME_Transkription")
 os.makedirs(download_dir, exist_ok=True)
 os.makedirs(transcriptions_dir, exist_ok=True)
 
 # Pfad zur XML-Datei
-rss_file = "851-0519-00L.rss.xml"
+rss_file = "XXX-XXXX-XXL.rss.xml"
 
 # XML-Datei parsen
 try:
@@ -97,11 +70,9 @@ with tqdm(total=len(video_links), desc="Download Fortschritt", unit="Video", dyn
 # Liste der heruntergeladenen Videos abrufen
 video_files = [f for f in os.listdir(download_dir) if f.endswith(".mp4")]
 
-# Suppressed model loader
+# model loader
 def load_whisper_model(model_name="base"):
-    with warnings.catch_warnings():
-        warnings.simplefilter("ignore")
-        return whisper.load_model(model_name)
+    return whisper.load_model(model_name)
 
 # Funktion zum Überprüfen, ob eine Transkription bereits existiert
 def is_transcription_complete(video_filename):
