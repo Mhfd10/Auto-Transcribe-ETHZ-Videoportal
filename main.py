@@ -127,7 +127,6 @@ def choose_whisper_model():
         for name in model_ordered:
             need = whisper_memory_dic[name]["vram"]
             if free_vram_gb//2 >= need:
-                print(f"Nutze Model: {name} auf GPU.")
                 return name
 
     # or cpu
@@ -135,7 +134,6 @@ def choose_whisper_model():
         for name in model_ordered:
             need = whisper_memory_dic[name]["ram"]
             if free_ram_gb//2 >= need:
-                print(f"Nutze Model: {name} auf CPU.")
                 return name
 
     raise RuntimeError("Zu wenig RAM/VRAM.")
@@ -200,4 +198,5 @@ with tqdm(total=len(video_files), desc="Transkriptionsfortschritt", unit="Video"
             progress_bar.update(1)
 
 print("Alle Videos wurden heruntergeladen, transkribiert und die Ergebnisse gespeichert.")
+
 
