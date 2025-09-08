@@ -48,7 +48,7 @@ MyLecture_Transkription/
 Mainly run the script and follow the prompts on the console. 
 1. Enter the name of the lecture (e.g. MyLecture), you can name it whatever you want
 2. If the lecture is new:
-   - You'll be prompted for the RSS feed link. You can copy it on the video portal under Media, I would recommend copying the low quality one to reduce the file size.
+   - You'll be prompted for the RSS feed link. You can copy it from on the video portal under Share.
 3. If the lecture already exists:
    - The saved RSS link will be used automatically.
 4. The script will:
@@ -89,7 +89,7 @@ The script will check your system memory and choose the largest model that fits,
 ```bash
 Welche Vorlesung möchtest du herunterladen und transkribieren: MyLecture
 Erstelle neue Vorlesung.
-Gib den RSS-File Link an: https://video.ethz.ch/lectures/d-phys/2025/spring/100-1000-00L.xml?key=aa1a11&quality=LOW
+Gib den RSS-File Link an: https://video.ethz.ch/~rss/series/DOnahgALOMe
 
 Download Fortschritt: 100%|████████████████████████| 12/12 [01:23<00:00,  6.42s/Video]
 Transkriptionsfortschritt: 100%|███████████████████| 12/12 [05:47<00:00, 28.94s/Video]
