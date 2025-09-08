@@ -2,6 +2,7 @@ import os
 import psutil
 import requests
 import xml.etree.ElementTree as ET
+from email.utils import parsedate_to_datetime
 import concurrent.futures
 import torch
 from tqdm import tqdm
@@ -53,10 +54,10 @@ def parse_rss_feed(rss_filelink, lecture_name):
     video_links = []
     for item in root.findall(".//item"):
         enclosure = item.find("enclosure")
-        pub_date = item.find("pubDate")
+        pub_date = parsedate_to_datetime(item.findtext("pubDate")).date().isoformat()
         if enclosure is not None and pub_date is not None:
             url = enclosure.attrib.get("url")
-            title = pub_date.text.split("T")[0]
+            title = pub_date
             video_links.append((title, url))
     return video_links
 
@@ -198,5 +199,6 @@ with tqdm(total=len(video_files), desc="Transkriptionsfortschritt", unit="Video"
             progress_bar.update(1)
 
 print("Alle Videos wurden heruntergeladen, transkribiert und die Ergebnisse gespeichert.")
+
 
 
