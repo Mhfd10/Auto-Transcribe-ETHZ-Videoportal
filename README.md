@@ -21,7 +21,7 @@ It manages folders per lecture, remembers the RSS link, and adapts the transcrip
 ## Requirements
 
 - Python 3.9+
-- Install dependencies (for more information, read the documentation of the libraries, especially [Whisper](https://github.com/openai/whisper), which also requires you to install [ffmpeg](https://ffmpeg.org):
+- Install dependencies (for more information, read the documentation of the libraries, especially [Whisper](https://github.com/openai/whisper), which also requires you to install [ffmpeg](https://ffmpeg.org)):
   ```bash
   pip install torch psutil requests tqdm openai-whisper
   ```
