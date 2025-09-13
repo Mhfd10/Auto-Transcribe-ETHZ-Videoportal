@@ -10,7 +10,7 @@ import whisper
 
 def lecture_exists(lecture_name):
     """Check if the lecture folder exists."""
-    return os.path.exists(lecture_name + "_Vorlesungen") and os.path.exists(lecture_name + "_Transkription")
+    return os.path.exists(lecture_name + "_rss_link.txt")
 
 def create_new_lecture(lecture_name):
     """Create a new lecture folder and get RSS link from the user."""
@@ -199,6 +199,7 @@ with tqdm(total=len(video_files), desc="Transkriptionsfortschritt", unit="Video"
             progress_bar.update(1)
 
 print("Alle Videos wurden heruntergeladen, transkribiert und die Ergebnisse gespeichert.")
+
 
 
 
