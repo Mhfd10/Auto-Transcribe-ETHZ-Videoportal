@@ -54,9 +54,10 @@ def parse_rss_feed(rss_filelink, lecture_name):
     video_links = []
     for item in root.findall(".//item"):
         enclosure = item.find("enclosure")
+        lowquality = item.find(".//{http://search.yahoo.com/mrss/}content[@height='360']")
         pub_date = parsedate_to_datetime(item.findtext("pubDate")).date().isoformat()
         if enclosure is not None and pub_date is not None:
-            url = enclosure.attrib.get("url")
+            url = lowquality.attrib.get("url") if lowquality is not None else enclosure.attrib.get("url")
             title = pub_date
             video_links.append((title, url))
     return video_links
@@ -199,6 +200,7 @@ with tqdm(total=len(video_files), desc="Transkriptionsfortschritt", unit="Video"
             progress_bar.update(1)
 
 print("Alle Videos wurden heruntergeladen, transkribiert und die Ergebnisse gespeichert.")
+
 
 
 
