@@ -48,13 +48,13 @@ MyLecture_Transkription/
 Mainly run the script and follow the prompts on the console. 
 1. Enter the name of the lecture (e.g. MyLecture), you can name it whatever you want
 2. If the lecture is new:
-   - You'll be prompted for the RSS feed link. You can copy it from on the video portal under Share.
+   - You'll be prompted for the RSS feed link. You can find it under Share on the video portal
 3. If the lecture already exists:
-   - The saved RSS link will be used automatically.
+   - The saved RSS link will be used automatically
 4. The script will:
    - download all the videos from the RSS feed
    - transcribe them to text
-   - save everything in the corresponding folders.
+   - save everything in the corresponding folders
 
 ---
 
