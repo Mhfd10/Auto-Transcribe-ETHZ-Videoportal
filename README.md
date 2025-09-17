@@ -80,7 +80,7 @@ The script will check your system memory and choose the largest model that fits,
 - Downloads and transcriptions are performed in parallel with up to 4 threads
 - Transcription speed depends heavily on your hardware
 - Ensure you have enough disk space for both videos and transcripts
-- You may see an error message saying that FP16 is not supported on this device and that you should use FP32 instead. This is expected if you are running Whisper on a CPU, since most CPUs do not support FP16. In this case, Whisper will automatically fall back to FP32 (full precision), which uses more memory but works everywhere
+- You may see an error message stating that FP16 is not supported by this device, it is therefore using FP32 instead. This is expected if you are running Whisper on a CPU, since most CPUs do not support FP16. In this case, Whisper will automatically fall back to FP32 (full precision), which uses more memory but works everywhere
 
 ---
 
